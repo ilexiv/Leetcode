@@ -105,7 +105,7 @@ class UnionFind
 {
 public:
     UnionFind(int n)
-        : rank(n, 1), f(n, 0)
+        : size(n, 1), f(n, 0)
     {
         for (int i = 0; i < n; ++i)
         {
@@ -115,10 +115,21 @@ public:
 
     int Find(int x)
     {
-        if (x == f[x])
-            return x;
-        else
-            return Find(f[x]);
+        int root = x;
+
+        while (root != f[root])
+        {
+            root = f[root];
+        }
+
+        while (x != root)
+        {
+            int next = f[x];
+            f[x] = root;
+            x = next;
+        }
+
+        return root;
     }
 
     void Union(int x, int y)
@@ -129,20 +140,23 @@ public:
         if (fx == fy)
             return;
 
-        if (rank[fx] > rank[fy])
-            swap(fx, fy);
-
-        f[fx] = fy;
-
-        if (rank[fx] == rank[fy])
-            rank[fy]++;
+        if (size[fx] > size[fy])
+        {
+            size[fx] += size[fy];
+            f[fy] = fx;
+        }
+        else
+        {
+            size[fy] += size[fx];
+            f[fx] = fy;
+        }
     }
 
 private:
-    vector<int> f, rank;
+    vector<int> f, size;
 };
 
-class SolutionAdvanced
+class Solution
 {
 public:
     int minimumHammingDistance(vector<int> &source, vector<int> &target, vector<vector<int>> &allowedSwaps)
