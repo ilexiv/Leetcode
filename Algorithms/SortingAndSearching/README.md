@@ -5,6 +5,26 @@ In computer science, binary search, also known as half-interval search, logarith
 Binary search compares the target value to the middle element of the array. If they are not equal, the half in which the target cannot lie is eliminated and the search continues on the remaining half, again taking the middle element to compare to the target value, and repeating this until the target value is found.
 If the search ends with the remaining half being empty, the target is not in the array. [read more](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 
+**Basic tamplate that can be used to solve a lot BS problems:**
+```
+int left = 0; 
+int right = nums.size();
+
+while (left < right) {
+    int mid = left + (right - left) / 2;
+
+    if (nums[mid] < target) {
+        left = mid + 1;
+    } else {
+        right = mid;
+    }
+}
+
+left -= left == nums.size() ? 1 : 0;
+
+return nums[left] == target ? left : -1;
+```
+
 **Binary search problems:**
 * Binary Search: https://leetcode.com/problems/binary-search/	
 * Lower and upper bound: https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
