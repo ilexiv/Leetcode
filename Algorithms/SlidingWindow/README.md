@@ -17,12 +17,12 @@ Generally speaking a sliding window is a sub-list that runs over an underlying c
 * Minimum Size Subarray Sum: https://leetcode.com/problems/minimum-size-subarray-sum/
 * Maximum Points You Can Obtain from Cards: https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
 
-Dequeue approach:
+**Dequeue approach:**
 * Sliding Window Maximum: https://leetcode.com/problems/sliding-window-maximum/
 * Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit: https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/
 * Shortest Subarray with Sum at Least K: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
 
-Harder questions:
+**Harder questions:**
 * Substring with Concatenation of All Words: https://leetcode.com/problems/substring-with-concatenation-of-all-words/
 * Minimum Window Substring: https://leetcode.com/problems/minimum-window-substring/
 * Sliding Window Median: https://leetcode.com/problems/sliding-window-median/
