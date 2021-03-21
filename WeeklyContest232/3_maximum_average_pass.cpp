@@ -9,6 +9,7 @@
 #include <unordered_map>
 #include <queue>
 #include <numeric>
+#include <array>
 
 using namespace std;
 
