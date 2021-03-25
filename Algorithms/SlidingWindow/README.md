@@ -4,6 +4,26 @@
 The Sliding window is a problem-solving technique for problems that involve arrays/strings.
 Generally speaking a sliding window is a sub-list that runs over an underlying collection.
 
+**Basic tamplate that can be used to solve some sliding window problems:**
+
+```
+unordered_map<char, int> hmap;
+int left = 0, right = 0;
+int res = INT_MIN;
+for (left = 0; left < s.size(); left++) {
+    hmap[s[left]]++;
+    while (hmap.size() > 2) {
+        res = max(res, left - right);
+        if (--hmap[s[right]] == 0) {
+            hmap.erase(s[right]);
+        }
+        right++;
+    }
+}
+res = max(res, left - right);
+return res;
+```
+
 **Strings/Arrays hash map approach:**
 * Longest Substring Without Repeating Characters: https://leetcode.com/problems/longest-substring-without-repeating-characters/
 * Number of Substrings Containing All Three Characters: https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
