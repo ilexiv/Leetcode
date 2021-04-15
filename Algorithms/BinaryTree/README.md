@@ -33,3 +33,17 @@ Predecessor (the node stay behind of given node): right-most node of left subtre
 * Balanced Binary Tree: https://leetcode.com/problems/balanced-binary-tree/
 * Symmetric Tree: https://leetcode.com/problems/symmetric-tree/
 * Subtree of Another Tree: https://leetcode.com/problems/subtree-of-another-tree/
+* Insert into a Binary Search Tree: https://leetcode.com/problems/insert-into-a-binary-search-tree/
+* Delete Node in a BST: https://leetcode.com/problems/delete-node-in-a-bst/
+* Closest Binary Search Tree Value: https://leetcode.com/problems/closest-binary-search-tree-value/
+
+**Medimum problems:**
+* Validate Binary Search Tree: https://leetcode.com/problems/validate-binary-search-tree/
+* Balance a Binary Search Tree: https://leetcode.com/problems/balance-a-binary-search-tree/
+* Flip Equivalent Binary Trees: https://leetcode.com/problems/flip-equivalent-binary-trees/
+* Lowest Common Ancestor of a Binary Tree: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+
+**Harder problems:**
+* Binary Tree Maximum Path Sum: https://leetcode.com/problems/binary-tree-maximum-path-sum/
+* Serialize and desirialize BST: https://leetcode.com/problems/serialize-and-deserialize-bst/
+* Count Complete Tree Nodes: https://leetcode.com/problems/count-complete-tree-nodes/
