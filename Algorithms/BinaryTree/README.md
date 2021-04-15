@@ -15,3 +15,21 @@ Successor (the node stay ahead of given node: left-most node of right subtree or
 
 Predecessor (the node stay behind of given node): right-most node of left subtree or successor is an ancestor*.
 
+**Tree traversals:**
+* Inorder traversal: https://leetcode.com/problems/binary-tree-inorder-traversal/
+* Preorder traversal: https://leetcode.com/problems/binary-tree-preorder-traversal/
+* Postorder traversal: https://leetcode.com/problems/binary-tree-postorder-traversal/
+* Level order traversal: https://leetcode.com/problems/binary-tree-level-order-traversal/
+* Vertical order traversal: https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
+* Zigzag order traversal: https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
+* Morris traversal: https://leetcode.com/problems/binary-tree-inorder-traversal/
+* Binary Tree Right Side View: https://leetcode.com/problems/binary-tree-right-side-view/
+* Boundary of Binary Tree: https://leetcode.com/problems/boundary-of-binary-tree/
+
+**General manipulation:**
+* Depth ob binary tree: https://leetcode.com/problems/maximum-depth-of-binary-tree/
+* Diameter of Binary Tree: https://leetcode.com/problems/diameter-of-binary-tree/
+* Invert binary tree: https://leetcode.com/problems/invert-binary-tree/
+* Balanced Binary Tree: https://leetcode.com/problems/balanced-binary-tree/
+* Symmetric Tree: https://leetcode.com/problems/symmetric-tree/
+* Subtree of Another Tree: https://leetcode.com/problems/subtree-of-another-tree/
