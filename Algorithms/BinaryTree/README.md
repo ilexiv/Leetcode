@@ -47,3 +47,10 @@ Predecessor (the node stay behind of given node): right-most node of left subtre
 * Binary Tree Maximum Path Sum: https://leetcode.com/problems/binary-tree-maximum-path-sum/
 * Serialize and desirialize BST: https://leetcode.com/problems/serialize-and-deserialize-bst/
 * Count Complete Tree Nodes: https://leetcode.com/problems/count-complete-tree-nodes/
+
+**Trie problems:**
+* Implement Trie (Prefix Tree): https://leetcode.com/problems/implement-trie-prefix-tree/
+* Design Add and Search Words Data Structure: https://leetcode.com/problems/design-add-and-search-words-data-structure/submissions/
+* Design Search Autocomplete System: https://leetcode.com/problems/design-search-autocomplete-system/submissions/
+* Stream of Characters: https://leetcode.com/problems/stream-of-characters/
+* Word Search II: https://leetcode.com/problems/word-search-ii/
