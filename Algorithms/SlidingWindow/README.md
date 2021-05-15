@@ -137,8 +137,56 @@ return res;
 
 **Arrays with pointers(indices):**
 * Max Consecutive Ones III: https://leetcode.com/problems/max-consecutive-ones-iii/
+    <details><summary>Solution</summary><p>
+
+        Two left and right pointers are introduced and points to index 0.
+        We are iterating through the input vector using the right pointer
+        and increase the count if we met 0 in the input vector (means that we can flip it).
+        While count exceed K, we keep decreasing the current window by
+        increasing left pointer. While doing that we check if the vactor at left index is
+        euqal to 0, and if so we decrease the count. Like vector[left] == 0 -> count--;
+        After that we need to update the returned result: res = max(res, right - left + 1);
+        Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2
+        Output: 6
+        Explanation: [1,1,1,0,0,1,1,1,1,1,1]
+ 
+</p></details>
+
 * Minimum Size Subarray Sum: https://leetcode.com/problems/minimum-size-subarray-sum/
+    <details><summary>Solution</summary><p>
+
+        Two left and right pointers are introduced and points to index 0.
+        We are iterating through the input vector using the right pointer
+        and subtract the current vector value form target: target -= vector[right].
+        While target <= 0, we keep decreasing the current window by
+        increasing left pointer. While doing that we increase the target += vector[left]
+        and calulating the returned result: res = min(res, right - left + 1);
+        Input: target = 7, nums = [2,3,1,2,4,3]
+        Output: 2
+        Explanation: The subarray [4,3] has the minimal length under the problem constraint.
+ 
+</p></details>
+
 * Maximum Points You Can Obtain from Cards: https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
+    <details><summary>Solution</summary><p>
+
+        Two left and right pointers are introduced to keep the sum from left and right.
+        First, calculate the sum from the left part of the array from 0 to K.
+        Then we are iterating thorugh the input array and keep increasing right 
+        window of the array, while decreasing left part:
+         * As a first step we decrease the current calulated result from the first step
+           by removing the last element from the left part, like: left -= cardPoints[K - ind - 1].
+         * Then we increase the current calculated result by adding the first element form the
+           right part, like: right += cardPoints[size - ind - 1].
+         * And finally we save the maximum of the current window:  ans = max(ans, left + right); 
+        Input: cardPoints = [1,2,3,4,5,6,1], k = 3
+        Output: 12
+        Explanation: After the first step, your score will always be 1. However, choosing the
+        rightmost card first will maximize your total score. The optimal strategy is to take the three
+        cards on the right, giving a final score of 1 + 6 + 5 = 12.
+ 
+</p></details>
+
 * Maximum distance between pairs of values: https://leetcode.com/problems/maximum-distance-between-a-pair-of-values/
 
 **Dequeue approach:**
