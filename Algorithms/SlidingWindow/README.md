@@ -188,6 +188,20 @@ return res;
 </p></details>
 
 * Maximum distance between pairs of values: https://leetcode.com/problems/maximum-distance-between-a-pair-of-values/
+    <details><summary>Solution</summary><p>
+
+        Two ind1 and ind2 pointers are introduced and points to index 0 to different vectors.
+        We are iterating through the input vectors using the ind1 and ind2 pointers together.
+        There are two possible scenarios:
+        * If the nums1[ind1] > nums2[ind2]: then we just increase the ind1.
+        * Otherwise, we calculate the distance between two indicies and update the return
+          result value if necessary: dist = max(dist, ind2 - ind1);
+        Input: nums1 = [55,30,5,4,2], nums2 = [100,20,10,10,5]
+        Output: 2
+        Explanation: The valid pairs are (0,0), (2,2), (2,3), (2,4), (3,3), (3,4), and (4,4).
+        The maximum distance is 2 with pair (2,4).
+ 
+</p></details>
 
 **Dequeue approach:**
 * Sliding Window Maximum: https://leetcode.com/problems/sliding-window-maximum/
