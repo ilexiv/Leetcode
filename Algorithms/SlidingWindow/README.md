@@ -28,7 +28,7 @@ return res;
 * Longest Substring Without Repeating Characters: https://leetcode.com/problems/longest-substring-without-repeating-characters/
     <details><summary>Solution</summary><p>
 
-        Two left and right pointers are introduced and points to 0, we are
+        Two left and right pointers are introduced and points to index 0, we are
         iterating through the input string using the right pointer
         and check if we already meet this character. To check if we met the
         char we use unordered map and save the index of this char to it.
@@ -40,26 +40,6 @@ return res;
             2. If we didn't meet this char -> Just update the current char index in unordered map.
         Input: s = "abcabcbb"
         Output: 3
- 
-</p></details>
-
-* Number of Substrings Containing All Three Characters: https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
-    <details><summary>Solution</summary><p>
-
-        Two left and right pointers are introduced and points to 0.
-        We are iterating through the input string using the right pointer
-        and calculate number of times we met this character by using vector[3].
-        Then while all three characters are exist in the array, we iterating through the
-        input string using left pointer and decrease the freequence of character.
-        At a last step we add left pointer to the result variable.
-                 0 1 2 3 4 5 6 7 8 9
-        Example: a a a b b c c a b c
-        When all a, b, c > 0 for first time at position 5, then after while loop left pointer
-        will be at position 3, we will add 3 to result because there would be three substrings
-        from three a's. Then a,b,c > 0 at position 7 ,then we will move left pointer to position 5
-        then we will add 5 to result because there could be 5 substrings starting from 0 to second b.
-        At position 5: a a a b b c, a a b b c, a b b c,
-        At position 7: a a a b b c c a, a a b b c c a, a b b c c a, b b c c a, b c c a,  
  
 </p></details>
 
@@ -80,13 +60,86 @@ return res;
 </p></details>
 
 * Fruit Into Baskets: https://leetcode.com/problems/fruit-into-baskets/
+    <details><summary>Solution</summary><p>
+
+        Two left and right pointers are introduced and points to index 0.
+        We want to save the tree type and it's frequency, like fruit[2] = 3.
+        We are iterating through the input vector using the right pointer
+        and calculate fruit type occurance using unordered map.
+        While size of the map exceed the 2 basket, we need to update
+        returned result by getting maximum from current result and right - left.
+        Also wee need to decrease the current window by increasing left pointer
+        and decreasing frequency of the fruit in the hmap. If the frequency of the fruit
+        type is equal to zero, we need to erase it from the hmap.
+        Input: [1,2,3,2,2]
+        Output: 4
+        Explanation: collect [2,3,2,2].
+ 
+</p></details>
+
 * Longest Substring with At Most Two Distinct Characters: https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/
+    <details><summary>Solution</summary><p>
+
+        Two left and right pointers are introduced and points to index 0.
+        We want to save the char and it's frequency, like hmap[a] = 3.
+        We are iterating through the input string using the right pointer
+        and save char frequency using unordered map.
+        While size of the map exceed the 2, we need to update returned result by
+        getting maximum from current result and right - left.
+        Also wee need to decrease the current window by increasing left pointer
+        and decreasing frequency of the char in the hmap. If the frequency of the char
+        is equal to zero, we need to erase it from the hmap.
+        Input: s = "ccaabbb"
+        Output: 5
+        Explanation: The substring is "aabbb" which its length is 5.
+ 
+</p></details>
+
+* Number of Substrings Containing All Three Characters: https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
+    <details><summary>Solution</summary><p>
+
+        Two left and right pointers are introduced and points to index 0.
+        We are iterating through the input string using the right pointer
+        and calculate number of times we met this character by using vector[3].
+        Then while all three characters are exist in the array, we iterating through the
+        input string using left pointer and decrease the freequence of character.
+        At a last step we add left pointer to the result variable.
+                 0 1 2 3 4 5 6 7 8 9
+        Example: a a a b b c c a b c
+        When all a, b, c > 0 for first time at position 5, then after while loop left pointer
+        will be at position 3, we will add 3 to result because there would be three substrings
+        from three a's. Then a,b,c > 0 at position 7 ,then we will move left pointer to position 5
+        then we will add 5 to result because there could be 5 substrings starting from 0 to second b.
+        At position 5: a a a b b c, a a b b c, a b b c,
+        At position 7: a a a b b c c a, a a b b c c a, a b b c c a, b b c c a, b c c a,  
+ 
+</p></details>
+
 * Subarrays with K Different Integers: https://leetcode.com/problems/subarrays-with-k-different-integers/
+    <details><summary>Solution</summary><p>
+
+        The returned result could be the: return Exact(A, K) - Exact(A, K - 1);
+        Where Exact() function can be implemented as described below:
+        Two left and right pointers are introduced and points to index 0.
+        We want to save the integer and it's frequency, like hmap[7] = 3.
+        We are iterating through the input vector using the right pointer
+        and save integer frequency using unordered map.
+        While size of the map exceed K, we keep decreasing the current window by
+        increasing left pointer and decreasing frequency of the integer in the hmap.
+        If the frequency of the integer is equal to zero, we need to erase it from the hmap.
+        After that we need to update the returned result, by adding to res: the length between
+        right and left pointer: res += right - left + 1;
+        Input: nums = [1,2,1,3,4], k = 3
+        Output: 3
+        Explanation: Subarrays formed with exactly 3 different integers: [1,2,1,3], [2,1,3], [1,3,4].
+ 
+</p></details>
 
 **Arrays with pointers(indices):**
 * Max Consecutive Ones III: https://leetcode.com/problems/max-consecutive-ones-iii/
 * Minimum Size Subarray Sum: https://leetcode.com/problems/minimum-size-subarray-sum/
 * Maximum Points You Can Obtain from Cards: https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
+* Maximum distance between pairs of values: https://leetcode.com/problems/maximum-distance-between-a-pair-of-values/
 
 **Dequeue approach:**
 * Sliding Window Maximum: https://leetcode.com/problems/sliding-window-maximum/
