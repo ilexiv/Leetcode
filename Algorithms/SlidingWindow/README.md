@@ -205,7 +205,60 @@ return res;
 
 **Dequeue approach:**
 * Sliding Window Maximum: https://leetcode.com/problems/sliding-window-maximum/
+    <details><summary>Solution</summary><p>
+
+        Introduce deque to hold the indices of the input vector AND the front of the deque
+        will always point to the current maximum value in the window.
+        At a first step we update the deque for the current given window K:
+        * While the deque is not empty AND the current value of the input vector is
+          higher than vector value from the deque end -> keep removing the element from
+          the back of the deque: while (!dq.empty() && nums[dq.back()] < nums[i]) dq.pop_back();
+        * Insert the current index to the deque at the end.
+        At the end of this step we will know that we have the maximum value in the FRONT of the deque.
+        Then keep iterating thorught the input vector starting from the K position:
+        * Push the vector value by using index from the FRONT deque to the result vector.
+        * While the deque is not empty AND the fromt index of the deque is less than
+          current index minis window size -> keep removing the element from
+          the FRONT of the deque: while (!dq.empty() && nums[dq.back()] < nums[i]) dq.pop_back();
+        * While the deque is not empty AND the current value of the input vector is
+          higher than vector value from the deque end -> keep removing the element from
+          the back of the deque: while (!dq.empty() && nums[dq.back()] < nums[i]) dq.pop_back();
+        * Insert the current index to the deque at the end.
+ 
+</p></details>
+
 * Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit: https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/
+    <details><summary>Solution</summary><p>
+
+        Two left and right pointers are introduced and points to index 0.
+        Introduce two deque mind and maxd, so the front() will hold the
+        minimum/maximum value by the current point.
+        While iterating through the input vector using right pointer we need:
+        * Keep mind amd maxd in sync, so they will point to the current max/min
+          value by the current point, like:
+          while (!maxd.empty() && maxd.back() < nums[i]) maxd.pop_back();
+          while (!mind.empty() && mind.back() > nums[i]) mind.pop_back();
+        * Insert the current element to mind and maxd.
+        * If the difference between two front deque elemens exceed the limit,
+          we will try to remove the element from the deque and increase the
+          left pointer.
+        The returned result will be the right - left. 
+        Input: nums = [8,2,4,7], limit = 4
+        Output: 2 
+        Explanation: All subarrays are: 
+        [8] with maximum absolute diff |8-8| = 0 <= 4.
+        [8,2] with maximum absolute diff |8-2| = 6 > 4. 
+        [8,2,4] with maximum absolute diff |8-2| = 6 > 4.
+        [8,2,4,7] with maximum absolute diff |8-2| = 6 > 4.
+        [2] with maximum absolute diff |2-2| = 0 <= 4.
+        [2,4] with maximum absolute diff |2-4| = 2 <= 4.
+        [2,4,7] with maximum absolute diff |2-7| = 5 > 4.
+        [4] with maximum absolute diff |4-4| = 0 <= 4.
+        [4,7] with maximum absolute diff |4-7| = 3 <= 4.
+        [7] with maximum absolute diff |7-7| = 0 <= 4. 
+        Therefore, the size of the longest subarray is 2.
+ 
+</p></details>
 * Shortest Subarray with Sum at Least K: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
 
 **Harder questions:**
