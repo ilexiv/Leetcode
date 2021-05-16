@@ -281,5 +281,36 @@ return res;
 
 **Harder questions:**
 * Substring with Concatenation of All Words: https://leetcode.com/problems/substring-with-concatenation-of-all-words/
+    <details><summary>Solution</summary><p>
+
+        Let's introduce unordered_map to keep the frequency of each word in the second input array of words.
+        Then we will iterate through the input string. The last index will be equal to:
+        s.size() - len * wsize + 1 as we need to check the last part of the string.
+        While iterating thorogh the input string:
+            1. Introduce the new unordered_map to keep the seen words in the input string.
+            2. Iterate through the input vector of words and substr string size from the 
+               input string:  string temp = s.substr(i + j * len, len);
+               Check that string exist in unordered_map that we created before
+               and add it to the map in step 1. If we can find all elements in input string and
+               their frequencies are equal -> add index to the result vector.
+ 
+</p></details>
+
 * Minimum Window Substring: https://leetcode.com/problems/minimum-window-substring/
+    <details><summary>Solution</summary><p>
+
+        Let's introduce unordered_map to keep the char frequency of the second string.
+        Introduce count that equal to the size of the second string.
+        Iterate through the first string and:
+        1. If the current char exist in unordered_map -> reduce count.
+        2. Reduce the frequency of the char in the unordered_map.
+        3. While count is equal to zero:
+            1. If the current result size higher than index difference ->
+               update the result size and save starting index.
+            2. Increse frequency of the char index at left position.
+            3. If the current char frequency in unordered_map more than 0 ->
+               increase count.
+
+</p></details>
+
 * Sliding Window Median: https://leetcode.com/problems/sliding-window-median/
