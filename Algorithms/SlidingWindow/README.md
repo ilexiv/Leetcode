@@ -261,6 +261,23 @@ return res;
 </p></details>
 
 * Shortest Subarray with Sum at Least K: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
+    <details><summary>Solution</summary><p>
+
+        This problem is harder because it can have negative values inside the array.
+        More easier problem is to solve this: https://leetcode.com/problems/minimum-size-subarray-sum/
+        First lets calculate the prefix sum of the input array. So we can caluclate the sum between
+        two indices faster.
+        Introduce deque that will hold indices of the increasing prefix sum.
+        This approach also contains two while loops to keep deque in sync.
+        The first while loop: helps to compare the prefix sum at index i with the smallest prefix sum
+        in our deque. If the condition psum[i] - psum[dq.front()] >= K is valid we will decrease the
+        current window:
+        while (!dq.empty() && psum[i] - psum[dq.front()] >= K) { res = min(res, i - dq.front()), dq.pop_front(); }
+        The second while loop: keep to hold deque property that all prefix sum is increasing. This will help to
+        keep the prefix sum bigger, but longth shorter.
+        while (!dq.empty() && psum[i] <= psum[dq.back()]) { dq.pop_back(); }
+ 
+</p></details>
 
 **Harder questions:**
 * Substring with Concatenation of All Words: https://leetcode.com/problems/substring-with-concatenation-of-all-words/
