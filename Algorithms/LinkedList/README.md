@@ -83,11 +83,70 @@ In computer science, a linked list is a linear collection of data elements whose
 
 **Reverse linked list problem:**
 * Reverse linked list: https://leetcode.com/problems/reverse-linked-list/
+    <details><summary>Solution</summary><p>
+
+       In order to solve this problem we should have three additional pointers:
+       current, previous and next.
+       While iterating through the original list we save the pointer to next
+       node. After that we change the current node next pointer to previous.
+       Then we update our previous pointer to the current node, and current
+       node pointer to the next node.
+       
+</p></details>
+
 * Reverse Linked List II: https://leetcode.com/problems/reverse-linked-list-ii/
+    <details><summary>Solution</summary><p>
+
+       This solution is based on a previous, but with some modification.
+       First of all we need to find the starting pointer where we wanted to
+       reverse a list, and we also need to store the previous pointer.
+       Then we should find a last pointer where we should stop while reversing
+       an original list.
+       The we call reverse list routine from the previous problem with the additional
+       argument -> last pointer.
+       The if previous pointer is not equal to nullptr, we connect it with our reversed list.
+       When returning the result we shoudl check if the start position is equal to 1, to return
+       the proper pointer.
+       
+</p></details>
+
 * Reverse Nodes in K Groups: https://leetcode.com/problems/reverse-nodes-in-k-group/
+    <details><summary>Solution</summary><p>
+
+       We should introduce several pointers:
+       1. ptr -> we will iterate through the list using this pointer.
+       2. nhead -> we will need it to save the new list pointer head after reversing list
+          for the first time.
+       3. tail -> we will need this to connect reversed list node with the next group.
+       And head pointer will always point to the node where we start reverse process.
+       While iterating through the original list:
+       1. While group counter K is not equal to 0, keep fetching next node.
+       2. If current counter is equal to 0, then:
+            1. Reverse the list using the head pointer.
+            2. If new head is equal to nullptr, update it with the reverve list pointer.
+            3. If the new tail is NOT equal to nullptr -> connect tail next node with reverse
+               list.
+            4. Update tail with head pointer and head with ptr pointer.
+       
+</p></details>
 
 **All in one problems:**
 * Reorder list: https://leetcode.com/problems/reorder-list/
+    <details><summary>Solution</summary><p>
+
+       First of all we need to find the middle pointer.
+       Then we reverse the list starting from middle pointer.
+       Then we itnroduce one more list pointer orig and save original head pointer
+       into it.
+       While reversed list next pointer is not null:
+       1. We will save orig->next pointer into temp pointer;
+       2. We will update orig->next pointer to pointer to rev list.
+       3. And restore orig pointer pointer to temp;
+       4. Then we will save rev->next pointer into temp pointer;
+       5. We will update rev-.next pointer with the orig pointer.
+       6. And we will restore rev pointer from the temp pointer.
+       
+</p></details>
 
 **Fast and slow pointers:**
 * Middle of linked lsit: https://leetcode.com/problems/middle-of-the-linked-list/
