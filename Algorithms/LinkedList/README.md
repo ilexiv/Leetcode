@@ -130,6 +130,28 @@ In computer science, a linked list is a linear collection of data elements whose
        
 </p></details>
 
+**Fast and slow pointers:**
+* Middle of linked lsit: https://leetcode.com/problems/middle-of-the-linked-list/
+    <details><summary>Solution</summary><p>
+
+       This solution is based on a two pointer technique: slow and fast.
+       We firstly intialize slow and fast pointers from the original head
+       pointer.
+       Then while fast and fast->next pointer are not eqaul to nullptr we will:
+       keep increasing slow pointer by one and fast pointer by two.
+       Our final solution is stored in slow pointer.
+       
+</p></details>
+
+* Linked List Cycle: https://leetcode.com/problems/linked-list-cycle/
+    <details><summary>Solution</summary><p>
+
+       This solution is based on a previous problem. One modification is that
+       inside while loop, when we icnrease slow and fast pointer we should check
+       if they are euqal, and if so we will return true to the caller.
+       
+</p></details>
+
 **All in one problems:**
 * Reorder list: https://leetcode.com/problems/reorder-list/
     <details><summary>Solution</summary><p>
@@ -147,10 +169,6 @@ In computer science, a linked list is a linear collection of data elements whose
        6. And we will restore rev pointer from the temp pointer.
        
 </p></details>
-
-**Fast and slow pointers:**
-* Middle of linked lsit: https://leetcode.com/problems/middle-of-the-linked-list/
-* Linked List Cycle: https://leetcode.com/problems/linked-list-cycle/
 
 **Two pointers technique:**
 * Remove Nth Node from End of the List: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
