@@ -24,9 +24,8 @@ res = max(res, left - right);
 return res;
 ```
 
-**Strings/Arrays hash map approach:**
-* Longest Substring Without Repeating Characters: https://leetcode.com/problems/longest-substring-without-repeating-characters/
-    <details><summary>Solution</summary><p>
+## Strings/Arrays hash map approach problems
+<details><summary>Longest Substring Without Repeating Characters: https://leetcode.com/problems/longest-substring-without-repeating-characters/</summary><p>
 
         Two left and right pointers are introduced and points to index 0, we are
         iterating through the input string using the right pointer
@@ -43,8 +42,7 @@ return res;
  
 </p></details>
 
-* Find All Anagrams in a String: https://leetcode.com/problems/find-all-anagrams-in-a-string/
-    <details><summary>Solution</summary><p>
+<details><summary>Find All Anagrams in a String: https://leetcode.com/problems/find-all-anagrams-in-a-string/</summary><p>
 
         Create a first vector1 of 26 elements and fill it with the frequences of charactes from the
         source string. Create a second vector2 of 26 elements to hold frequnces of chars for the
@@ -59,8 +57,7 @@ return res;
  
 </p></details>
 
-* Fruit Into Baskets: https://leetcode.com/problems/fruit-into-baskets/
-    <details><summary>Solution</summary><p>
+<details><summary>Fruit Into Baskets: https://leetcode.com/problems/fruit-into-baskets/</summary><p>
 
         Two left and right pointers are introduced and points to index 0.
         We want to save the tree type and it's frequency, like fruit[2] = 3.
@@ -77,8 +74,7 @@ return res;
  
 </p></details>
 
-* Longest Substring with At Most Two Distinct Characters: https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/
-    <details><summary>Solution</summary><p>
+<details><summary>Longest Substring with At Most Two Distinct Characters: https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/</summary><p>
 
         Two left and right pointers are introduced and points to index 0.
         We want to save the char and it's frequency, like hmap[a] = 3.
@@ -95,8 +91,7 @@ return res;
  
 </p></details>
 
-* Number of Substrings Containing All Three Characters: https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
-    <details><summary>Solution</summary><p>
+<details><summary>Number of Substrings Containing All Three Characters: https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/</summary><p>
 
         Two left and right pointers are introduced and points to index 0.
         We are iterating through the input string using the right pointer
@@ -115,8 +110,7 @@ return res;
  
 </p></details>
 
-* Subarrays with K Different Integers: https://leetcode.com/problems/subarrays-with-k-different-integers/
-    <details><summary>Solution</summary><p>
+<details><summary>Subarrays with K Different Integers: https://leetcode.com/problems/subarrays-with-k-different-integers/</summary><p>
 
         The returned result could be the: return Exact(A, K) - Exact(A, K - 1);
         Where Exact() function can be implemented as described below:
@@ -135,9 +129,8 @@ return res;
  
 </p></details>
 
-**Arrays with pointers(indices):**
-* Max Consecutive Ones III: https://leetcode.com/problems/max-consecutive-ones-iii/
-    <details><summary>Solution</summary><p>
+## Arrays with pointers(indices) problems
+<details><summary>Max Consecutive Ones III: https://leetcode.com/problems/max-consecutive-ones-iii/</summary><p>
 
         Two left and right pointers are introduced and points to index 0.
         We are iterating through the input vector using the right pointer
@@ -152,8 +145,7 @@ return res;
  
 </p></details>
 
-* Minimum Size Subarray Sum: https://leetcode.com/problems/minimum-size-subarray-sum/
-    <details><summary>Solution</summary><p>
+<details><summary>Minimum Size Subarray Sum: https://leetcode.com/problems/minimum-size-subarray-sum/</summary><p>
 
         Two left and right pointers are introduced and points to index 0.
         We are iterating through the input vector using the right pointer
@@ -167,8 +159,7 @@ return res;
  
 </p></details>
 
-* Maximum Points You Can Obtain from Cards: https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
-    <details><summary>Solution</summary><p>
+<details><summary>Maximum Points You Can Obtain from Cards: https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/</summary><p>
 
         Two left and right pointers are introduced to keep the sum from left and right.
         First, calculate the sum from the left part of the array from 0 to K.
@@ -187,8 +178,7 @@ return res;
  
 </p></details>
 
-* Maximum distance between pairs of values: https://leetcode.com/problems/maximum-distance-between-a-pair-of-values/
-    <details><summary>Solution</summary><p>
+<details><summary>Maximum distance between pairs of values: https://leetcode.com/problems/maximum-distance-between-a-pair-of-values/</summary><p>
 
         Two ind1 and ind2 pointers are introduced and points to index 0 to different vectors.
         We are iterating through the input vectors using the ind1 and ind2 pointers together.
@@ -203,9 +193,8 @@ return res;
  
 </p></details>
 
-**Dequeue approach:**
-* Sliding Window Maximum: https://leetcode.com/problems/sliding-window-maximum/
-    <details><summary>Solution</summary><p>
+## Dequeue problems
+<details><summary>Sliding Window Maximum: https://leetcode.com/problems/sliding-window-maximum/</summary><p>
 
         Introduce deque to hold the indices of the input vector AND the front of the deque
         will always point to the current maximum value in the window.
@@ -227,8 +216,7 @@ return res;
  
 </p></details>
 
-* Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit: https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/
-    <details><summary>Solution</summary><p>
+<details><summary>Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit: https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/</summary><p>
 
         Two left and right pointers are introduced and points to index 0.
         Introduce two deque mind and maxd, so the front() will hold the
@@ -260,8 +248,7 @@ return res;
  
 </p></details>
 
-* Shortest Subarray with Sum at Least K: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
-    <details><summary>Solution</summary><p>
+<details><summary>Shortest Subarray with Sum at Least K: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/</summary><p>
 
         This problem is harder because it can have negative values inside the array.
         More easier problem is to solve this: https://leetcode.com/problems/minimum-size-subarray-sum/
@@ -279,9 +266,8 @@ return res;
  
 </p></details>
 
-**Harder questions:**
-* Substring with Concatenation of All Words: https://leetcode.com/problems/substring-with-concatenation-of-all-words/
-    <details><summary>Solution</summary><p>
+## Harder problems
+<details><summary>Substring with Concatenation of All Words: https://leetcode.com/problems/substring-with-concatenation-of-all-words/</summary><p>
 
         Let's introduce unordered_map to keep the frequency of each word in the second input array of words.
         Then we will iterate through the input string. The last index will be equal to:
@@ -296,8 +282,7 @@ return res;
  
 </p></details>
 
-* Minimum Window Substring: https://leetcode.com/problems/minimum-window-substring/
-    <details><summary>Solution</summary><p>
+<details><summary>Minimum Window Substring: https://leetcode.com/problems/minimum-window-substring/</summary><p>
 
         Let's introduce unordered_map to keep the char frequency of the second string.
         Introduce count that equal to the size of the second string.
@@ -313,4 +298,8 @@ return res;
 
 </p></details>
 
-* Sliding Window Median: https://leetcode.com/problems/sliding-window-median/
+<details><summary>Sliding Window Median: https://leetcode.com/problems/sliding-window-median/</summary><p>
+
+        TODO
+
+</p></details>
