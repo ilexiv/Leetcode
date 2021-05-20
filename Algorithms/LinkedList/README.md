@@ -172,7 +172,28 @@ In computer science, a linked list is a linear collection of data elements whose
 
 **Two pointers technique:**
 * Remove Nth Node from End of the List: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+    <details><summary>Solution</summary><p>
+
+      We are introducing two pointers: temphead and prev. Also we need
+      one integer variable to keep track of how many nodes we visit.
+      While iterating through the original list using temphead
+      pointer we keep increasing it to the next pointer. Also, on
+      each iteration we check how many nodes we visit. If we already
+      visit n nodes, we set the prev pointer to the current value.
+      On each iteration if the prev pointer is no equal to nullptr we
+      keep icreasing it by 1.
+      When we found the pointer we just need to update pointers to the
+      next node.
+       
+</p></details>
+
 * Swapping Nodes in a Linked List: https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
+    <details><summary>Solution</summary><p>
+
+      This solution is based on a above problem with some small modification. We will need
+      additional poitner to save the k node from the start of the list.
+       
+</p></details>
 
 **Design problem:**
 * Design Linked List: https://leetcode.com/problems/design-linked-list/submissions/
