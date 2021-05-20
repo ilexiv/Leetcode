@@ -3,9 +3,8 @@
 **Description:**
 In computer science, a linked list is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each element points to the next. It is a data structure consisting of a collection of nodes which together represent a sequence. In its most basic form, each node contains: data, and a reference (in other words, a link) to the next node in the sequence. This structure allows for efficient insertion or removal of elements from any position in the sequence during iteration. [read more](https://en.wikipedia.org/wiki/Linked_list)
 
-**General manipulation:**
-* Partition List: https://leetcode.com/problems/partition-list/
-    <details><summary>Solution</summary><p>
+## General manipulation
+<details><summary>Partition List: https://leetcode.com/problems/partition-list/</summary><p>
 
        We introduce two new pointers low and high that are pointing to the
        dummy node. While iterating through the original list we keep
@@ -15,8 +14,7 @@ In computer science, a linked list is a linear collection of data elements whose
  
 </p></details>
 
-* Merge two sorted list: https://leetcode.com/problems/merge-two-sorted-lists/
-    <details><summary>Solution</summary><p>
+<details><summary>Merge two sorted list: https://leetcode.com/problems/merge-two-sorted-lists/</summary><p>
 
        We introduce new pointer ptr that is pointing to the dummy node.
        While iterating through the input lists we keep updating
@@ -27,8 +25,7 @@ In computer science, a linked list is a linear collection of data elements whose
  
 </p></details>
 
-* Merge K sorted list: https://leetcode.com/problems/merge-k-sorted-lists/
-    <details><summary>Solution</summary><p>
+<details><summary>Merge K sorted list: https://leetcode.com/problems/merge-k-sorted-lists/</summary><p>
 
        Solution is based on a priority queue. pq is created with the custom
        comparison operator that we compare between values of two nodes.
@@ -41,8 +38,7 @@ In computer science, a linked list is a linear collection of data elements whose
  
 </p></details>
 
-* Copy List with Random Pointer: https://leetcode.com/problems/copy-list-with-random-pointer/
-    <details><summary>Solution</summary><p>
+<details><summary>Copy List with Random Pointer: https://leetcode.com/problems/copy-list-with-random-pointer/</summary><p>
 
        Firstly we create an unordered_map which will map orogonal list node pointer
        to the its deep copy. Also, we introduce new list node pointer that will
@@ -60,8 +56,7 @@ In computer science, a linked list is a linear collection of data elements whose
 
 </p></details>
 
-* Add two numbers: https://leetcode.com/problems/add-two-numbers/
-    <details><summary>Solution</summary><p>
+<details><summary>Add two numbers: https://leetcode.com/problems/add-two-numbers/</summary><p>
 
        We create a new list node pointer that will point to the dummy node.
        While iterating through the input lists we will try to get the values
@@ -73,17 +68,16 @@ In computer science, a linked list is a linear collection of data elements whose
        
 </p></details>
 
-* Add Two Numbers II: https://leetcode.com/problems/add-two-numbers-ii/
-    <details><summary>Solution</summary><p>
+<details><summary>Add Two Numbers II: https://leetcode.com/problems/add-two-numbers-ii/</summary><p>
 
        This solution is mostly base on a previous solution, but we also
        need tor everse the result list before returning it to the caller.
        
 </p></details>
 
-**Reverse linked list problem:**
-* Reverse linked list: https://leetcode.com/problems/reverse-linked-list/
-    <details><summary>Solution</summary><p>
+
+## Reverse linked list problems
+<details><summary>Reverse linked list: https://leetcode.com/problems/reverse-linked-list/</summary><p>
 
        In order to solve this problem we should have three additional pointers:
        current, previous and next.
@@ -94,8 +88,7 @@ In computer science, a linked list is a linear collection of data elements whose
        
 </p></details>
 
-* Reverse Linked List II: https://leetcode.com/problems/reverse-linked-list-ii/
-    <details><summary>Solution</summary><p>
+<details><summary>Reverse Linked List II: https://leetcode.com/problems/reverse-linked-list-ii/</summary><p>
 
        This solution is based on a previous, but with some modification.
        First of all we need to find the starting pointer where we wanted to
@@ -110,8 +103,7 @@ In computer science, a linked list is a linear collection of data elements whose
        
 </p></details>
 
-* Reverse Nodes in K Groups: https://leetcode.com/problems/reverse-nodes-in-k-group/
-    <details><summary>Solution</summary><p>
+<details><summary>Reverse Nodes in K Groups: https://leetcode.com/problems/reverse-nodes-in-k-group/</summary><p>
 
        We should introduce several pointers:
        1. ptr -> we will iterate through the list using this pointer.
@@ -130,9 +122,9 @@ In computer science, a linked list is a linear collection of data elements whose
        
 </p></details>
 
-**Fast and slow pointers:**
-* Middle of linked lsit: https://leetcode.com/problems/middle-of-the-linked-list/
-    <details><summary>Solution</summary><p>
+
+## Fast and slow pointers problems
+<details><summary>Middle of linked lsit: https://leetcode.com/problems/middle-of-the-linked-list/</summary><p>
 
        This solution is based on a two pointer technique: slow and fast.
        We firstly intialize slow and fast pointers from the original head
@@ -143,8 +135,7 @@ In computer science, a linked list is a linear collection of data elements whose
        
 </p></details>
 
-* Linked List Cycle: https://leetcode.com/problems/linked-list-cycle/
-    <details><summary>Solution</summary><p>
+<details><summary>Linked List Cycle: https://leetcode.com/problems/linked-list-cycle/</summary><p>
 
        This solution is based on a previous problem. One modification is that
        inside while loop, when we icnrease slow and fast pointer we should check
@@ -152,9 +143,9 @@ In computer science, a linked list is a linear collection of data elements whose
        
 </p></details>
 
-**All in one problems:**
-* Reorder list: https://leetcode.com/problems/reorder-list/
-    <details><summary>Solution</summary><p>
+
+## All in one problems
+<details><summary>Reorder list: https://leetcode.com/problems/reorder-list/</summary><p>
 
        First of all we need to find the middle pointer.
        Then we reverse the list starting from middle pointer.
@@ -170,9 +161,9 @@ In computer science, a linked list is a linear collection of data elements whose
        
 </p></details>
 
-**Two pointers technique:**
-* Remove Nth Node from End of the List: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
-    <details><summary>Solution</summary><p>
+
+## Two pointers technique problems
+<details><summary>Remove Nth Node from End of the List: https://leetcode.com/problems/remove-nth-node-from-end-of-list/</summary><p>
 
       We are introducing two pointers: temphead and prev. Also we need
       one integer variable to keep track of how many nodes we visit.
@@ -187,13 +178,13 @@ In computer science, a linked list is a linear collection of data elements whose
        
 </p></details>
 
-* Swapping Nodes in a Linked List: https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
-    <details><summary>Solution</summary><p>
+<details><summary>Swapping Nodes in a Linked List: https://leetcode.com/problems/swapping-nodes-in-a-linked-list/</summary><p>
 
       This solution is based on a above problem with some small modification. We will need
       additional poitner to save the k node from the start of the list.
        
 </p></details>
 
-**Design problem:**
+
+## Design problem
 * Design Linked List: https://leetcode.com/problems/design-linked-list/submissions/
