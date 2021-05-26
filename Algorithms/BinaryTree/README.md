@@ -72,9 +72,39 @@ Predecessor (the node stay behind of given node): right-most node of left subtre
  
 </p></details>
 
-* Morris traversal: https://leetcode.com/problems/binary-tree-inorder-traversal/
-* Binary Tree Right Side View: https://leetcode.com/problems/binary-tree-right-side-view/
-* Boundary of Binary Tree: https://leetcode.com/problems/boundary-of-binary-tree/
+<details><summary>Morris traversal: https://leetcode.com/problems/binary-tree-inorder-traversal/</summary><p>
+
+       The solution is based on modifying the rightmost pointer of the tree.
+       So, while current pointer is not nullptr:
+       1. If current does not have left child then we add current’s value ot the result,
+          and swith to the right subtree current = current->right.
+       2. If current node does have left child, then in the left subtree we set the right
+          child of the rightmost node pointing to the current node. Then we keep going
+          to the left subtree.
+       (Inorder traversal)
+ 
+</p></details>
+
+<details><summary>Binary Tree Right Side View: https://leetcode.com/problems/binary-tree-right-side-view/</summary><p>
+
+        This problem can se solved by using modified preorder recursive traversal.
+        The only difference is that we will keep inserting element inside the result
+        vector only if the current level is more than the vector size.
+        Like: if (res.size() <= level) res.push_back(root->val);
+        Obvisouly we need to maintain the current level during traversal.
+ 
+</p></details>
+
+<details><summary>Boundary of Binary Tree: https://leetcode.com/problems/boundary-of-binary-tree/</summary><p>
+
+        This problem can be solved by combinig the preorder and postorder traversal.
+        We need inorder to get the left view, psotorder to get the right view, and
+        we need to modify this combined approach to get the botom/leaves nodes.
+        This also can be solved by applying three separate traversals:
+        left view, add leaves, and right view.
+ 
+</p></details>
+
 
 ## General problems
 * Depth ob binary tree: https://leetcode.com/problems/maximum-depth-of-binary-tree/
