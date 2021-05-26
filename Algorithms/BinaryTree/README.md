@@ -107,10 +107,39 @@ Predecessor (the node stay behind of given node): right-most node of left subtre
 
 
 ## General problems
-* Depth ob binary tree: https://leetcode.com/problems/maximum-depth-of-binary-tree/
-* Diameter of Binary Tree: https://leetcode.com/problems/diameter-of-binary-tree/
-* Invert binary tree: https://leetcode.com/problems/invert-binary-tree/
-* Balanced Binary Tree: https://leetcode.com/problems/balanced-binary-tree/
+<details><summary>Depth of binary tree: https://leetcode.com/problems/maximum-depth-of-binary-tree/</summary><p>
+
+        This problem can be solved by applying dfs approach on a tree.
+        When we traverse the tree we will return 0 when we reach the leaf node.
+        Then we will call the save dfs() method on left and right nodes.
+        At very end we will return the maximum of both calls + 1.
+ 
+</p></details>
+
+<details><summary>Diameter of Binary Tree: https://leetcode.com/problems/diameter-of-binary-tree/</summary><p>
+
+        This problem is almost the same as previous, but it needs to be modified in
+        order to find the diameter. Basically, this means that in order to find
+        diameter of binary tree we need to sum the depth of the left node, and the
+        depth of the right node.
+ 
+</p></details>
+
+<details><summary>Invert binary tree: https://leetcode.com/problems/invert-binary-tree/</summary><p>
+
+        In order to solve this problem we need to apply preorder traversal and
+        swap left and right subtrees of the current node on each iteration.
+ 
+</p></details>
+
+<details><summary>Balanced Binary Tree: https://leetcode.com/problems/balanced-binary-tree/</summary><p>
+
+        IWe are calculating the depth on each tree level and retunn -1 if the depth on
+        each level is more than exptected. This is almost the same as Depth of binary tree
+        with some small modifications.
+ 
+</p></details>
+
 * Symmetric Tree: https://leetcode.com/problems/symmetric-tree/
 * Subtree of Another Tree: https://leetcode.com/problems/subtree-of-another-tree/
 * Insert into a Binary Search Tree: https://leetcode.com/problems/insert-into-a-binary-search-tree/
