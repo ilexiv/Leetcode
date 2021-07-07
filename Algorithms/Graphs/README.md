@@ -1,0 +1,86 @@
+# Graph problems
+
+**Description:**
+In computer science, graphs are used to represent networks of communication, data organization, computational devices,
+the flow of computation, etc. For instance, the link structure of a website can be represented by a directed graph,
+in which the vertices represent web pages and directed edges represent links from one page to another. 
+
+# Common algorithms
+**BFS:**
+Breadth-first search (BFS) is an algorithm for searching a tree data structure for a node that satisfies a given property.
+It starts at the tree root and explores all nodes at the present depth prior to moving on to the nodes at the next depth level.
+Extra memory, usually a queue, is needed to keep track of the child nodes that were encountered but not yet explored.
+
+```
+double bfs(unordered_map<string, vector<ip>>& adj, vector<string>& query) {
+    unordered_set<string> visited;
+    string start = query[0];
+    string end = query[1];
+    queue<ip> q;
+    q.push({start, 1.0});
+    visited.insert(start);
+    while (!q.empty()) {
+        int sz = q.size();
+        for (int i = 0; i < sz; i++) {
+            auto [node, cost] = q.front(); q.pop();
+            if (!adj.count(node)) continue;
+            if (node == end) return cost;
+            for (auto& a : adj[node]) {
+                if (!visited.count(a.first)) {
+                    q.push({a.first, cost * a.second});
+                    visited.insert(node);
+                }
+            }
+        }
+    }
+    return -1.0;
+}
+```
+Notes:
+1. Algorithm uses queue for implementation.
+2. It checks whether a vertex has been explored before enqueueing the vertex.
+3. We can track if the node was already explored by modifying the original matrix.
+4. 
+
+## BFS problems
+<details><summary>Flood Fill: https://leetcode.com/problems/flood-fill/</summary><p>
+</p></details>
+<details><summary>Number of Islands: https://leetcode.com/problems/number-of-islands/</summary><p>
+</p></details>
+<details><summary>Word Ladder I: https://leetcode.com/problems/word-ladder/</summary><p>
+</p></details>
+<details><summary>Word Ladder II: https://leetcode.com/problems/word-ladder-ii/</summary><p>
+</p></details>
+<details><summary>Evaluate Division: https://leetcode.com/problems/evaluate-division/</summary><p>
+</p></details>
+<details><summary>Get Watched Videos by Your Friends: https://leetcode.com/problems/get-watched-videos-by-your-friends/</summary><p>
+</p></details>
+<details><summary>Cut Off Trees for Golf Event: https://leetcode.com/problems/cut-off-trees-for-golf-event/</summary><p>
+</p></details>
+
+## DFS problems
+<details><summary>Number of Islands: https://leetcode.com/problems/number-of-islands/</summary><p>
+</p></details>
+<details><summary>Flood Fill: https://leetcode.com/problems/flood-fill/</summary><p>
+</p></details>
+<details><summary>Longest Increasing Path in a Matrix: https://leetcode.com/problems/longest-increasing-path-in-a-matrix/</summary><p>
+</p></details>
+<details><summary>Evaluate Division: https://leetcode.com/problems/evaluate-division/</summary><p>
+</p></details>
+<details><summary>Robot Room Cleaner: https://leetcode.com/problems/robot-room-cleaner/</summary><p>
+</p></details>
+<details><summary>Most Stones Removed with Same Row or Column: https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/</summary><p>
+</p></details>
+<details><summary>Reconstruct Itinerary: https://leetcode.com/problems/reconstruct-itinerary/</summary><p>
+</p></details>
+<details><summary>Tree Diameter: https://leetcode.com/problems/tree-diameter/</summary><p>
+</p></details>
+<details><summary>Accounts Merge: https://leetcode.com/problems/accounts-merge/</summary><p>
+</p></details>
+
+
+
+
+
+
+
