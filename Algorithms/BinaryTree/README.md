@@ -72,15 +72,74 @@ Predecessor (the node stay behind of given node): right-most node of left subtre
  
 </p></details>
 
-* Morris traversal: https://leetcode.com/problems/binary-tree-inorder-traversal/
-* Binary Tree Right Side View: https://leetcode.com/problems/binary-tree-right-side-view/
-* Boundary of Binary Tree: https://leetcode.com/problems/boundary-of-binary-tree/
+<details><summary>Morris traversal: https://leetcode.com/problems/binary-tree-inorder-traversal/</summary><p>
+
+       The solution is based on modifying the rightmost pointer of the tree.
+       So, while current pointer is not nullptr:
+       1. If current does not have left child then we add current’s value ot the result,
+          and swith to the right subtree current = current->right.
+       2. If current node does have left child, then in the left subtree we set the right
+          child of the rightmost node pointing to the current node. Then we keep going
+          to the left subtree.
+       (Inorder traversal)
+ 
+</p></details>
+
+<details><summary>Binary Tree Right Side View: https://leetcode.com/problems/binary-tree-right-side-view/</summary><p>
+
+        This problem can se solved by using modified preorder recursive traversal.
+        The only difference is that we will keep inserting element inside the result
+        vector only if the current level is more than the vector size.
+        Like: if (res.size() <= level) res.push_back(root->val);
+        Obvisouly we need to maintain the current level during traversal.
+ 
+</p></details>
+
+<details><summary>Boundary of Binary Tree: https://leetcode.com/problems/boundary-of-binary-tree/</summary><p>
+
+        This problem can be solved by combinig the preorder and postorder traversal.
+        We need inorder to get the left view, psotorder to get the right view, and
+        we need to modify this combined approach to get the botom/leaves nodes.
+        This also can be solved by applying three separate traversals:
+        left view, add leaves, and right view.
+ 
+</p></details>
+
 
 ## General problems
-* Depth ob binary tree: https://leetcode.com/problems/maximum-depth-of-binary-tree/
-* Diameter of Binary Tree: https://leetcode.com/problems/diameter-of-binary-tree/
-* Invert binary tree: https://leetcode.com/problems/invert-binary-tree/
-* Balanced Binary Tree: https://leetcode.com/problems/balanced-binary-tree/
+<details><summary>Depth of binary tree: https://leetcode.com/problems/maximum-depth-of-binary-tree/</summary><p>
+
+        This problem can be solved by applying dfs approach on a tree.
+        When we traverse the tree we will return 0 when we reach the leaf node.
+        Then we will call the save dfs() method on left and right nodes.
+        At very end we will return the maximum of both calls + 1.
+ 
+</p></details>
+
+<details><summary>Diameter of Binary Tree: https://leetcode.com/problems/diameter-of-binary-tree/</summary><p>
+
+        This problem is almost the same as previous, but it needs to be modified in
+        order to find the diameter. Basically, this means that in order to find
+        diameter of binary tree we need to sum the depth of the left node, and the
+        depth of the right node.
+ 
+</p></details>
+
+<details><summary>Invert binary tree: https://leetcode.com/problems/invert-binary-tree/</summary><p>
+
+        In order to solve this problem we need to apply preorder traversal and
+        swap left and right subtrees of the current node on each iteration.
+ 
+</p></details>
+
+<details><summary>Balanced Binary Tree: https://leetcode.com/problems/balanced-binary-tree/</summary><p>
+
+        IWe are calculating the depth on each tree level and retunn -1 if the depth on
+        each level is more than exptected. This is almost the same as Depth of binary tree
+        with some small modifications.
+ 
+</p></details>
+
 * Symmetric Tree: https://leetcode.com/problems/symmetric-tree/
 * Subtree of Another Tree: https://leetcode.com/problems/subtree-of-another-tree/
 * Insert into a Binary Search Tree: https://leetcode.com/problems/insert-into-a-binary-search-tree/
