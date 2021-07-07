@@ -40,7 +40,9 @@ Notes:
 1. Algorithm uses queue for implementation.
 2. It checks whether a vertex has been explored before enqueueing the vertex.
 3. We can track if the node was already explored by modifying the original matrix.
-4. 
+4. BFS algorithm can be instructed with addiitional array dist which can help to
+   track the parent node of the next node. This will help to reconstruct the path
+   by looping backward from end node.
 
 ## BFS problems
 <details><summary>Flood Fill: https://leetcode.com/problems/flood-fill/</summary><p>
