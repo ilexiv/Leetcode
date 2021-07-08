@@ -68,7 +68,8 @@ Notes:
 1. Algorithm usually use recursion implementaiton.
 2. We mark the node as visited and will keep explore it's neighbors if there are not yet explored.
 3. DFS can be useful to find connected components. We can iterate through the nodes and call dfs() 
-   to find all nodes which belongs to component. 
+   to find all nodes which belongs to component.
+4. We can use unordered_map<int, vector<int>> to represent the graph.
 
 
 ## BFS problems
@@ -106,10 +107,15 @@ Notes:
 </p></details>
 <details><summary>Accounts Merge: https://leetcode.com/problems/accounts-merge/</summary><p>
 </p></details>
-
-
-
-
-
-
-
+    
+## Connected components
+<details><summary>Number of Provinces: https://leetcode.com/problems/number-of-provinces/</summary><p>
+</p></details>
+<details><summary>Number of Connected Components in an Undirected Graph: https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/</summary><p>
+</p></details>
+<details><summary>Number of Operations to Make Network Connected: https://leetcode.com/problems/number-of-operations-to-make-network-connected/</summary><p>
+</p></details>
+<details><summary>Accounts Merge: https://leetcode.com/problems/accounts-merge/</summary><p>
+</p></details>
+<details><summary>Critical Connections in a Network: https://leetcode.com/problems/critical-connections-in-a-network/</summary><p>
+</p></details>
