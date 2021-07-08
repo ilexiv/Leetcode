@@ -74,34 +74,45 @@ Notes:
 **Dijkstra's algorithm:**
 is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks.
 ```
-    using ip = pair<int, int>;
-    vector<vector<ip>> adj(n);
-    for (auto& f : flights) adj[f[0]].push_back({f[1], f[2]});
-    using arr = array<int, 3>;
-    priority_queue<arr, vector<arr>, greater<arr>> pq;
-    vector<int> dist(n, INT_MAX);
-    vector<bool> vis(n, false);
-    pq.push({0, src, 0});
-    while (!pq.empty()) {
-        auto [cost, node, stops] = pq.top();
-        pq.pop();
-        vis[node] = true;
-        if (node == dst) return cost;
-        if (stops > k) continue;
-        if (dist[node] < stops) continue; // optimization
-        dist[node] = stops;
-        for (auto& [next, price] : adj[node]) {
-            pq.push({cost + price, next, stops + 1});
+class Solution {
+public:
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        using ip = pair<int, int>;
+        vector<vector<ip>> adj(n + 1);
+        for (auto& t : times)
+            adj[t[0]].push_back({t[1], t[2]});
+        priority_queue<ip> pq;
+        vector<int> dist(n + 1, INT_MAX);
+        vector<bool> vis(n + 1, false);
+        pq.push({0, k});
+        dist[k] = 0;
+        vis[k] = true;
+        while (!pq.empty()) {
+            auto [n_cost, node] = pq.top();
+            pq.pop();
+            if (n_cost > dist[node]) continue;
+            for (auto& [next, cost] : adj[node]) {
+                if (vis[next] == true) continue;
+                if (dist[next] > dist[node] + cost) {
+                    dist[next] = dist[node] + cost;
+                    pq.push({dist[next], next});
+                }
+            }
         }
+        int res = 0;
+        for_each(dist.begin() + 1, dist.end(), [&](int d) {
+            res = max(res, d);
+        });
+        return res == INT_MAX ? -1 : res;
     }
-    return -1;
+};
 ```
 Notes:
 1. We will have a set to track visited nodes.
 2. We will create a distance array to track the distance to each node. Initial node will have 0, others maximum.
 3. We will use min priority_queue to get the node with the minimum distance from current node.
 4. If we are only interested in shortes distance till some END node, we can terminate the search earlier: if (node == dst) return cost;
-5. If we already find a better path we shouldn't explore it further: if (dist[node] < stops) continue;
+5. If we already find a better path we shouldnt explore it further: if (dist[node] < stops) continue;
 
 ## BFS problems
 <details><summary>Flood Fill: https://leetcode.com/problems/flood-fill/</summary><p>
@@ -139,7 +150,7 @@ Notes:
 <details><summary>Accounts Merge: https://leetcode.com/problems/accounts-merge/</summary><p>
 </p></details>
     
-## Connected components
+## Connected components problems
 <details><summary>Number of Provinces: https://leetcode.com/problems/number-of-provinces/</summary><p>
 </p></details>
 <details><summary>Number of Connected Components in an Undirected Graph: https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/</summary><p>
@@ -151,5 +162,14 @@ Notes:
 <details><summary>Critical Connections in a Network: https://leetcode.com/problems/critical-connections-in-a-network/</summary><p>
 </p></details>
 
-## Dijkstra's algorithm
-
+## Dijkstra's problems
+<details><summary>Path With Maximum Minimum Valued: https://leetcode.com/problems/path-with-maximum-minimum-value/</summary><p>
+</p></details>
+<details><summary>Network delay time: https://leetcode.com/problems/network-delay-time/</summary><p>
+</p></details>
+<details><summary>Path with Maximum Probability: https://leetcode.com/problems/path-with-maximum-probability/</summary><p>
+</p></details>
+<details><summary>Path With Minimum Effort: https://leetcode.com/problems/path-with-minimum-effort/submissions/</summary><p>
+</p></details>
+<details><summary>Cheapest Flights Within K Stops: https://leetcode.com/problems/cheapest-flights-within-k-stops/</summary><p>
+</p></details>
