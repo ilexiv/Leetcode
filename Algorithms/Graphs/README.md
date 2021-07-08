@@ -44,6 +44,33 @@ Notes:
    track the parent node of the next node. This will help to reconstruct the path
    by looping backward from end node.
 
+**DFS:**
+is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node
+(selecting some arbitrary node as the root node in the case of a graph) and explores as far as possible along
+each branch before backtracking.
+```
+void dfs(unordered_map<int, vector<int>>& graph, int node, unordered_set<int>& visited) {
+    visited.insert(node);
+    for (auto& n : graph[node]) {
+        if (!visited.count(n)) {
+            dfs(graph, n, visited);
+        }
+    }
+}
+// Find connected components.
+for (int i = 0; i < n; i++) {
+    if (!visited.count(i)) {
+        dfs(graph, i, visited);
+    }
+}
+```
+Notes:
+1. Algorithm usually use recursion implementaiton.
+2. We mark the node as visited and will keep explore it's neighbors if there are not yet explored.
+3. DFS can be useful to find connected components. We can iterate through the nodes and call dfs() 
+   to find all nodes which belongs to component. 
+
+
 ## BFS problems
 <details><summary>Flood Fill: https://leetcode.com/problems/flood-fill/</summary><p>
 </p></details>
