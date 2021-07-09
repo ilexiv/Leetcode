@@ -114,6 +114,73 @@ Notes:
 4. If we are only interested in shortes distance till some END node, we can terminate the search earlier: if (node == dst) return cost;
 5. If we already find a better path we shouldnt explore it further: if (dist[node] < stops) continue;
 
+**Union Find:**
+union–find data structure or disjoint-set data structure or merge–find set, is a data structure that stores a collection of disjoint (non-overlapping) sets. Equivalently, it stores a partition of a set into disjoint subsets. It provides operations for adding new sets, merging sets
+(replacing them by their union), and finding a representative member of a set.
+Helps to find number of connected components, and can help to find MST.
+
+```
+class UnionFind {
+    public:
+    UnionFind(int n) : parent(n) {
+        iota(parent.begin(), parent.end(), 0);
+    }
+
+    int Find(int x) {
+        int temp = x;
+        while (temp != parent[temp]) {
+            temp = parent[temp];
+        }
+        while (x != temp) {
+            int next = parent[x];
+            parent[x] = temp;
+            x = next;
+        }
+        return x;
+    }
+
+    void Union(int x, int y) {
+        int xx = Find(x);
+        int yy = Find(y);
+        if (xx != yy) {
+            parent[xx] = yy;
+        }
+    }
+
+    private:
+           vector<int> parent;
+};
+```
+Notes:
+    1. We can use vector<int> to hold the set of nodes or unordered_map<int, int> if we don't know the amount of nodes.
+    2. If the parent[id] == id, we know that id is the root node.
+    3. The data structure using two methods Union() - union to nodes/components, and Find() - find the root node.
+
+**Minimum Spanning Tree:**
+A minimum spanning tree (MST) is a subset of the edges of a connected, edge-weighted undirected graph that connects all the vertices
+together, without any cycles and with the minimum possible total edge weight.
+
+```
+    sort(connections.begin(), connections.end(), [](const auto& lhs, const auto& rhs) {
+        return lhs[2] < rhs[2];
+    });
+    int res = 0, count = 0;
+    UnionFind uf(n + 1);
+    for (auto& c : connections) {
+        int x = uf.Find(c[0]);
+        int y = uf.Find(c[1]);
+        if (x != y) {
+            uf.Union(x, y);
+            res += c[2];
+            count++;
+        }
+    }
+    return count == n - 1 ? res : -1;
+```
+Notes:
+    1. One of the implementaion of MST algorithm use Union Find algorithm (Kruskal's Algorithm).
+    2. We need to sort elements by the weight before appying the algorithm, or we can use min priority_queue.
+
 ## BFS problems
 <details><summary>Flood Fill: https://leetcode.com/problems/flood-fill/</summary><p>
 </p></details>
@@ -173,3 +240,20 @@ Notes:
 </p></details>
 <details><summary>Cheapest Flights Within K Stops: https://leetcode.com/problems/cheapest-flights-within-k-stops/</summary><p>
 </p></details>
+
+## Union Find problems
+<details><summary>Number of Islands: https://leetcode.com/problems/number-of-islands/submissions/</summary><p>
+</p></details>
+<details><summary>Largest Component Size by Common Factor: https://leetcode.com/problems/largest-component-size-by-common-factor/submissions/</summary><p>
+</p></details>
+<details><summary>Most Stones Removed with Same Row or Column: https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/</summary><p>
+</p></details>
+<details><summary>Number of Connected Components in an Undirected Graph: https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/</summary><p>
+</p></details>
+
+## Minimum Spanning Tree
+<details><summary>Connecting Cities With Minimum Cost: https://leetcode.com/problems/connecting-cities-with-minimum-cost/</summary><p>
+</p></details>
+<details><summary>Min Cost to Connect All Points: https://leetcode.com/problems/min-cost-to-connect-all-points/</summary><p>
+</p></details>
+
