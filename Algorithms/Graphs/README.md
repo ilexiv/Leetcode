@@ -181,6 +181,97 @@ Notes:
     1. One of the implementaion of MST algorithm use Union Find algorithm (Kruskal's Algorithm).
     2. We need to sort elements by the weight before appying the algorithm, or we can use min priority_queue.
 
+**Topological sort**
+of a directed graph is a linear ordering of its vertices such that for every directed edge uv from vertex u to vertex v, u comes before v in the ordering.
+
+```
+    // Kahn's Algorithm
+    vector<vector<int>> adj(numCourses);
+    vector<int> indegree(numCourses, 0);
+    for (auto& p : prerequisites) {
+        indegree[p[1]]++;
+        adj[p[0]].push_back(p[1]);
+    }
+    queue<int> q;
+    for (int i = 0; i < numCourses; i++) {
+        if (indegree[i] == 0) q.push(i);
+    }
+    int prereq = 0;
+    while (!q.empty()) {
+        int el = q.front();
+        q.pop();
+        prereq++;
+        for (auto& next : adj[el]) {
+            if (--indegree[next] == 0) {
+                q.push(next);
+            }
+        }
+    }
+    return prereq == numCourses;
+```
+Notes:
+    1. We will have the indegree array to count which nods should be visited first.
+    2. We will have a queue to push the modes that don't have any dependencies.
+
+## Floyd Warshall
+is an algorithm for finding shortest paths in a directed weighted graph with positive or negative edge weights.
+```
+class Solution {
+public:
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<vector<long>> dist(n, vector<long>(n, INT_MAX));
+        for (auto& t : times)
+            dist[t[0] - 1][t[1] - 1] = t[2];
+        for (int i = 0; i < n; i++)
+            dist[i][i] = 0;
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
+                }
+            }
+        }
+        long res = INT_MIN;
+        for (int i = 0; i < n; i++) {
+            if (dist[k - 1][i] == INT_MAX) return -1;
+            res = max(res, dist[k - 1][i]);
+        }
+        return (int)res;
+    }
+};
+```
+Notes:
+    1. We will use vector<vector<long>> to keep track of distance between nodes i and j.
+    2. We will have a 3 loops to check if we can improve the distance between i and j by using k node.
+
+## Bellman Ford
+is an algorithm that computes shortest paths from a single source vertex to all of the other vertices in a weighted digraph.
+
+```
+class Solution {
+public:
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<int> dist(n + 1, INT_MAX);
+        dist[k] = 0;
+        for (int i = 1; i <= n; i++) {
+            for (auto& t : times) {
+                if (dist[t[0]] != INT_MAX && dist[t[1]] > dist[t[0]] + t[2]) {
+                    dist[t[1]] = dist[t[0]] + t[2];
+                }
+            }
+        }
+        int res = 0;
+        for (int i = 1; i <= n; i++) {
+            res = max(res, dist[i]);
+        }
+        return res == INT_MAX ? -1 : res;
+    }
+};
+```
+Notes:
+    1. We will use the array to hold the distance between particular start node and all others.
+    2. We will try to improve distance n times between all nodes in the graph.
+
 ## BFS problems
 <details><summary>Flood Fill: https://leetcode.com/problems/flood-fill/</summary><p>
 </p></details>
@@ -251,9 +342,29 @@ Notes:
 <details><summary>Number of Connected Components in an Undirected Graph: https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/</summary><p>
 </p></details>
 
-## Minimum Spanning Tree
+## Minimum Spanning Tree problems
 <details><summary>Connecting Cities With Minimum Cost: https://leetcode.com/problems/connecting-cities-with-minimum-cost/</summary><p>
 </p></details>
 <details><summary>Min Cost to Connect All Points: https://leetcode.com/problems/min-cost-to-connect-all-points/</summary><p>
 </p></details>
 
+## Topological sort problems
+<details><summary>Course Schedule : https://leetcode.com/problems/course-schedule/</summary><p>
+</p></details>
+<details><summary>Course Schedule II: https://leetcode.com/problems/course-schedule-ii/submissions/</summary><p>
+</p></details>
+<details><summary>Sequence Reconstruction: https://leetcode.com/problems/sequence-reconstruction/submissions/</summary><p>
+</p></details>
+<details><summary>Alien Dictionary: https://leetcode.com/problems/alien-dictionary/solution/</summary><p>
+</p></details>
+
+## Floyd Warshall problems
+<details><summary>Find the City With the Smallest Number of Neighbors at a Threshold Distance: https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/</summary><p>
+</p></details>
+<details><summary>Network delay time: https://leetcode.com/problems/network-delay-time/</summary><p>
+</p></details>
+
+## Bellman Ford problems  
+<details><summary>Network delay time: https://leetcode.com/problems/network-delay-time/</summary><p>
+</p></details>
+    
